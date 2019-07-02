@@ -11,12 +11,80 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/table.js"></script>
 </head>
 <body>
     <div id="head-menu"></div>
     <div class="container">
         <h1>Table</h1>
-        <div><button class="btn btn-success">Add item</button></div>
+        <div id="add-row">
+            <label for="" class="label">Photo</label>
+            <input type="text" id="photo" class="add">
+            <label for="" class="label">Name</label>
+            <input type="text" id="name" class="add">
+            <label for="" class="label">Phone</label>
+            <input type="text" id="phone" class="add">
+            <button class="btn btn-success" id="add_row">Add</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col-auto"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" type="checkbox">
+                    </td>
+                    <td>
+                        <img class="thumbnail" src="http://avatars.co.ua/web/wallpapers/prikolnaya-avatarka-8473/100x100.gif" alt="">
+                    </td>
+                    <td>Семен Семеныч Горбунков</td>
+                    <td>+38(097)123-45-67</td>
+                    <td>
+                        <button class="btn btn-warning updateRow">Update</button>
+                        <button class="btn btn-danger deleteRow">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" type="checkbox">
+                    </td>
+                    <td>
+                        <img class="thumbnail" src="http://avatars.co.ua/web/wallpapers/prikolnaya-avatarka-8473/100x100.gif" alt="">
+                    </td>
+                    <td>Шеф</td>
+                    <td>+38(098)123-45-67</td>
+                    <td>
+                        <button class="btn btn-warning updateRow">Update</button>
+                        <button class="btn btn-danger deleteRow">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" type="checkbox">
+                    </td>
+                    <td>
+                        <img class="thumbnail" src="http://avatars.co.ua/web/wallpapers/prikolnaya-avatarka-8473/100x100.gif" alt="">
+                    </td>
+                    <td>Михал Иваныч</td>
+                    <td>+38(096)123-45-67</td>
+                    <td>
+                        <button class="btn btn-warning updateRow">Update</button>
+                        <button class="btn btn-danger deleteRow">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="selectDelete">
+            <button id="select_all" class="btn btn-default">Select all</button>
+            <button class="btn btn-info" id="delete_select">Delete selected</button>
+        </div>
     </div>
 </body>
 </html>
