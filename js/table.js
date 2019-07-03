@@ -1,4 +1,6 @@
 window.onload=function(){
+    $("#head-menu").load("/_menu.html");
+
     var checkAll=false;
     var listBtnUpdate=document.getElementsByClassName("updateRow");
     var listBtnDelete=document.getElementsByClassName("deleteRow");
@@ -13,16 +15,17 @@ window.onload=function(){
     select_all.onclick=selectAll;
     add_row.onclick=addRow;
     delete_select.onclick=deleteSelect;
-    
+
     function updateRow(){
-        alert("update");
         let parent=this.parentNode;
         while(parent.nodeName!=="TR"){
-            parent=parent.nodeName;
+            parent=parent.parentNode;
         }
-        prompt("new photo",parent);
-        prompt("new name","no name");
-        prompt("new phone","no phone");
+        var oldImg=parent.children[1].querySelector("img");
+        oldImg.setAttribute("src", prompt("new photo",oldImg.getAttribute("src")));
+        parent.children[2].innerHTML=prompt("new name",parent.children[2].innerHTML);
+        parent.children[3].innerHTML=prompt("new phone",parent.children[3].innerHTML);
+        alert("update data");
     }
     function deleteRow(){
         let parent=this.parentNode;
