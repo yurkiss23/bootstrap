@@ -1,5 +1,7 @@
-window.onload=function(){
-    $("#head-menu").load("/_menu.html");
+// window.onload=function(){
+window.addEventListener('load', function(){
+    // $("#head-menu").load("/_menu.html");
+    
 
     var checkAll=false;
     var listBtnUpdate=document.getElementsByClassName("updateRow");
@@ -89,4 +91,4 @@ window.onload=function(){
         }
         alert("delete selected");
     }
-}
+})
