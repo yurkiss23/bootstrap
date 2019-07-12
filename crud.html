@@ -12,6 +12,12 @@
 </head>
 <body>
     <div id="head-menu"></div>
+    
+    <div class="container">
+        <div class="notify">
+            <div class="alert alert-success hide" id="notify">Success</div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -19,16 +25,37 @@
         </div>
     </div>
 
+    <div class="eclipsePrgs hide" id="dlgPrgs">
+        <div class="progress">
+            <div class="m-auto">
+                <i class="fa fa-refresh fa-spin fa-3x"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
         <div class="row">
-            <table class="table table-striped base col sm-6" id="table">
+            <form action="" class="form form-inline mt-2 mb-2" id="addData">
+                <input type="text" class="form-control" id="addName" placeholder="new data">
+                <span class="input-group-btn">
+                    <button id="add-data" class="btn btn-outline-success ml-2" type="button">Add</button>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped table-bordered base col-sm-6" id="table">
                 <thead>
                     <tr>
                         <td>#</td>
                         <td>
                             column 1
                         </td>
-                        <td>qwe</td>
+                        <td>!!!</td>
                     </tr>
                 </thead>
                 <tbody id="data">
@@ -42,5 +69,16 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/crud.js"></script>
+    <!-- <script>
+        let base=["qwe","asd","zxc"];
+        for(let i=0;i<base.length;i++){
+            let row=document.createElement("tr");
+            row.innerHTML=
+            `<td>${i+1}</td>
+            <td>${base[i]}</td>
+            <td></td>`;
+            data.appendChild(row);
+        }
+    </script> -->
 </body>
 </html>
