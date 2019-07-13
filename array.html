@@ -28,20 +28,42 @@
         </div>
     </div>
 
-    <div class="eclipse hide" id="delRow">
+    <div class="eclipse hide" id="updRow">
         <div class="dialog">
-            <div class="header-dialog">
-                <button class="close" type="button" data-close>
-                    <i class="fa fa-close p-2"></i>
-                </button>
-                <h3 class="p-2">You sure?</h3>
-            </div>
-            <div class="content-dialog">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero culpa fugit nostrum sit! Veniam non ipsam quo nihil aliquid velit!</p>
-            </div>
+            <form role="form">
+                <div class="header-dialog">
+                    <button class="close" type="button" data-close>
+                        <i class="fa fa-close p-2"></i>
+                    </button>
+                    <h3 class="p-2">Update data</h3>
+                </div>
+                <div class="content-dialog">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero culpa fugit nostrum sit! Veniam non ipsam quo nihil aliquid velit!</p>
+                </div>
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <input type="file" id="exampleInputFile">
+                      <!-- <p class="help-block">Example block-level help text here.</p> -->
+                    </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Пароль</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <!-- <div class="checkbox">
+                          <label>
+                                <input type="checkbox"> Проверить меня
+                              </label>
+                        </div> -->
+                        <!-- <button type="submit" class="btn btn-default">Отправить</button> -->
+                      </form>
+                      
             <div class="m-2 footer-dialog">
                 <button type="button" class="btn btn-danger" data-close>Close</button>
-                <button type="button" class="btn btn-success" data-close>Ok</button>
+                <button type="button" class="btn btn-success" data-success>Ok</button>
             </div>
         </div>
     </div>
@@ -49,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>TEXT</h1>
+                <h1>Array to table</h1>
                 <button class="btn btn-success" id="btnShow">Show data</button>
 
                 <table class="table table-striped">
