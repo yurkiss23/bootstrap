@@ -1,0 +1,31 @@
+.eclipsePrgs{
+    position: fixed;
+    background-color: rgb(255, 255, 255, .5);
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+.notify{
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+.progress{
+    position: fixed;
+    background-color: #00000000;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.progress i{
+    font-size: 120px;
+    color: aqua;
+}
+.hide{
+    display: none;
+}

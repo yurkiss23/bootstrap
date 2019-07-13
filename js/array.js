@@ -14,9 +14,11 @@ window.addEventListener('load',function(){
     var listBtnDelete=document.getElementsByClassName("deleteRow");
     //var listCheckBox=document.getElementsByClassName("checkRow");
 
-    let btnShow=document.getElementById("btnShow");
+    let Show=document.getElementById("btnShow");
     let bodyTable=document.getElementById("data");
-    btnShow.onclick=function(){
+    
+    let showData=function(){
+    //Show.onclick=function(){
         //btnShow.innerText="hello";
         for(let i=0;i<arr.length;i++){
             let row=document.createElement("tr");
@@ -54,7 +56,7 @@ window.addEventListener('load',function(){
         listBtnDelete[i].onclick=deleteRow;
     }
     //select_all.onclick=selectAll;
-    add_row.onclick=addRow;
+    //add_row.onclick=addRow;
     
     function updateRow(){
         let parent=this.parentNode;
@@ -101,5 +103,20 @@ window.addEventListener('load',function(){
             listBtnDelete[i].onclick=deleteRow;
         }
         alert("add row");
+    }
+
+    document.getElementById("btnShow").onclick=function(){
+        //delRow.classList.remove("hide");
+        dlgPrgs.classList.remove("hide");
+        setTimeout(function(){
+            dlgPrgs.classList.add("hide");
+            //delRow.classList.remove("hide");
+            notify.classList.remove("hide");
+        },2000);
+        setTimeout(function(){
+            notify.classList.add;
+            showData();
+            
+        },3000);
     }
 });
