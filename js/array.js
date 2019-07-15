@@ -57,8 +57,13 @@ window.addEventListener('load',function(){
     //add_row.onclick=addRow;
     
     function updateRow(){
+        let qwe=updRow.getElementById("inputName");
+        // alert(qwe);
         updRow.classList.remove("hide");
+
         let listBtnSuccess=document.querySelectorAll("[data-success]");
+        let listBtnClose=document.querySelectorAll("[data-close]");
+
         for(let i=0;i<listBtnSuccess.length;i++){
             listBtnSuccess[i].onclick=function upd(){
                 updRow.classList.add("hide");
@@ -70,13 +75,18 @@ window.addEventListener('load',function(){
                 setTimeout(function(){notify.classList.add("hide")},4000);
             }
         }
+        for(let i=0;i<listBtnClose.length;i++){
+            listBtnClose[i].onclick=function(){
+                updRow.classList.add("hide");
+            }
+        }
 
         let parent=this.parentNode;
         while(parent.nodeName!=="TR"){
             parent=parent.parentNode;
         }
         var oldImg=parent.children[1].querySelector("img");
-        // oldImg.setAttribute("src", prompt("new photo",oldImg.getAttribute("src")));
+         //oldImg.setAttribute("src", prompt("new photo",oldImg.getAttribute("src")));
         // parent.children[2].innerHTML=prompt("new name",parent.children[2].innerHTML);
         // parent.children[3].innerHTML=prompt("new phone",parent.children[3].innerHTML);
 
