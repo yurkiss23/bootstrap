@@ -13,9 +13,17 @@
 <body>
     <div id="head-menu"></div>
 
+    <!-- SUCCESS NOTIFY -->
     <div class="container">
         <div class="notify">
             <div class="alert alert-success hide" id="notify">Success</div>
+        </div>
+    </div>
+
+    <!-- DONT CHANGE NOTIFY -->
+    <div class="container">
+        <div class="notify">
+            <div class="alert alert-warning hide" id="notifyWrg">Data dont change</div>
         </div>
     </div>
 
@@ -43,7 +51,6 @@
                     <div class="form-group">
                         <label for="inputPht">Photo input</label>
                         <input class="btn btn-default" type="file" id="inputPht">
-                        <!-- <p class="help-block">Example block-level help text here.</p> -->
                     </div>
                     <div class="form-group">
                         <label for="inputName">Name</label>
@@ -53,12 +60,27 @@
                         <label for="inputPhn">Phone</label>
                         <input type="phone" class="form-control" id="inputPhn" placeholder="phone">
                     </div>
-                    <!-- <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Проверить меня
-                        </label>
-                    </div> -->
-                    <!-- <button type="submit" class="btn btn-default">Отправить</button> -->
+                </div>
+                <div class="m-2 footer-dialog">
+                    <button type="button" class="btn btn-danger" data-close>Close</button>
+                    <button type="button" class="btn btn-success" data-success>Ok</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- DELETE DIALOG -->
+    <div class="eclipse hide" id="delRow">
+        <div class="dialog">
+            <form role="form">
+                <div class="header-dialog">
+                    <button class="close" type="button" data-close>
+                        <i class="fa fa-close p-2"></i>
+                    </button>
+                    <h3 class="p-2">Delete data</h3>
+                </div>
+                <div class="content-dialog">
+                    <p>You sure?</p>
                 </div>
                 <div class="m-2 footer-dialog">
                     <button type="button" class="btn btn-danger" data-close>Close</button>
@@ -72,8 +94,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Array to table</h1>
-                <button class="btn btn-success" id="btnShow">Show data</button>
-
+                <button class="btn btn-success m-2" id="btnShow">Show data</button>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -85,48 +106,6 @@
                         </tr>
                     </thead>
                     <tbody id="data">
-                        <!-- <tr>
-                            <td>
-                                <input class="form-control checkRow" type="checkbox">
-                            </td>
-                            <td>
-                                <img class="thumbnail" src="http://avatars.co.ua/web/wallpapers/prikolnaya-avatarka-8473/100x100.gif" alt="">
-                            </td>
-                            <td>Семен Семеныч Горбунков</td>
-                            <td>+38(097)123-45-67</td>
-                            <td>
-                                <button class="btn btn-warning updateRow">Update</button>
-                                <button class="btn btn-danger deleteRow">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                    <input class="form-control checkRow" type="checkbox">
-                            </td>
-                            <td>
-                                <img class="thumbnail" src="http://avatars.co.ua/web/wallpapers/prikolnaya-avatarka-8473/100x100.gif" alt="">
-                            </td>
-                            <td>Шеф</td>
-                            <td>+38(098)123-45-67</td>
-                            <td>
-                                <button class="btn btn-warning updateRow">Update</button>
-                                <button class="btn btn-danger deleteRow">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="form-control checkRow" type="checkbox">
-                            </td>
-                            <td>
-                                <img class="thumbnail" src="http://avatars.co.ua/web/wallpapers/prikolnaya-avatarka-8473/100x100.gif" alt="">
-                            </td>
-                            <td>Михал Иваныч</td>
-                            <td>+38(096)123-45-67</td>
-                            <td>
-                                <button class="btn btn-warning updateRow">Update</button>
-                                <button class="btn btn-danger deleteRow">Delete</button>
-                            </td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
