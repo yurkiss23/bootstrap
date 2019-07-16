@@ -67,14 +67,18 @@ window.addEventListener('load',function(){
             parent=parent.parentNode;
         }
         var oldImg=parent.children[1].querySelector("img");
-         //oldImg.setAttribute("src", prompt("new photo",oldImg.getAttribute("src")));
+        alert(oldImg.getAttribute("src"));
+        curImg.setAttribute("src", oldImg.getAttribute("src"));
         // parent.children[2].innerHTML=prompt("new name",parent.children[2].innerHTML);
         // parent.children[3].innerHTML=prompt("new phone",parent.children[3].innerHTML);
 
+        
         newName.value=parent.children[2].innerHTML;
         newPhn.value=parent.children[3].innerHTML;
 
         updRow.classList.remove("hide");
+        let qwe=document.querySelector("[data-img]").files;
+        alert(qwe[0].name);
 
         for(let i=0;i<listBtnSuccess.length;i++){
             listBtnSuccess[i].onclick=function(){
