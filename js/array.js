@@ -61,24 +61,30 @@ window.addEventListener('load',function(){
     function updateRow(){
         let newName=document.getElementById("inputName");
         let newPhn=document.getElementById("inputPhn");
+        let parentImg=document.getElementById("addImg");
         
         let parent=this.parentNode;
         while(parent.nodeName!=="TR"){
             parent=parent.parentNode;
         }
         var oldImg=parent.children[1].querySelector("img");
-        alert(oldImg.getAttribute("src"));
+        //alert(oldImg.getAttribute("src"));
         curImg.setAttribute("src", oldImg.getAttribute("src"));
-        // parent.children[2].innerHTML=prompt("new name",parent.children[2].innerHTML);
-        // parent.children[3].innerHTML=prompt("new phone",parent.children[3].innerHTML);
-
         
         newName.value=parent.children[2].innerHTML;
         newPhn.value=parent.children[3].innerHTML;
 
         updRow.classList.remove("hide");
-        let qwe=document.querySelector("[data-img]").files;
-        alert(qwe[0].name);
+        let qwe=document.querySelector("[data-img]");
+        //alert(qwe.files[0].name);
+
+        qwe.onclick=function(){
+            alert(1);
+            let newImg=curImg.cloneNode(true);
+            // curImg.remove();
+            newImg.setAttribute("src", window.URL.createObjectURL(qwe.files[0]));
+            parentImg.insertBefore(newImg,parentImg.firstChild);
+        }
 
         for(let i=0;i<listBtnSuccess.length;i++){
             listBtnSuccess[i].onclick=function(){
@@ -86,6 +92,7 @@ window.addEventListener('load',function(){
                 if(newName.value==parent.children[2].innerHTML&&newPhn.value==parent.children[3].innerHTML){
                     flag=false;
                 }
+
                 parent.children[2].innerHTML=newName.value;
                 parent.children[3].innerHTML=newPhn.value;
                 updRow.classList.add("hide");
