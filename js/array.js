@@ -1,5 +1,5 @@
 window.addEventListener('load',function(){
-    
+
     let arr=new Array(3);
     for(let i=0;i<arr.length;i++){
         arr[i]={
@@ -14,9 +14,6 @@ window.addEventListener('load',function(){
     var listBtnDelete=document.getElementsByClassName("deleteRow");
     let listBtnSuccess=document.querySelectorAll("[data-success]");
     let listBtnClose=document.querySelectorAll("[data-close]");
-    //var listCheckBox=document.getElementsByClassName("checkRow");
-
-    //let Show=document.getElementById("btnShow");
     let bodyTable=document.getElementById("data");
     
     let showData=function(){
@@ -55,44 +52,64 @@ window.addEventListener('load',function(){
     for(let i=0;i<listBtnDelete.length;i++){
         listBtnDelete[i].onclick=deleteRow;
     }
-    //select_all.onclick=selectAll;
-    //add_row.onclick=addRow;
     
     function updateRow(){
         let newName=document.getElementById("inputName");
         let newPhn=document.getElementById("inputPhn");
-        let parentImg=document.getElementById("addImg");
         
         let parent=this.parentNode;
         while(parent.nodeName!=="TR"){
             parent=parent.parentNode;
         }
         var oldImg=parent.children[1].querySelector("img");
-        //alert(oldImg.getAttribute("src"));
-        curImg.setAttribute("src", oldImg.getAttribute("src"));
+        newImg.setAttribute("src", oldImg.getAttribute("src"));
         
         newName.value=parent.children[2].innerHTML;
         newPhn.value=parent.children[3].innerHTML;
-
+        
         updRow.classList.remove("hide");
-        let qwe=document.querySelector("[data-img]");
-        //alert(qwe.files[0].name);
+        document.getElementById("inputPht").onchange=function(){
+            //let newImg=curImg.cloneNode(true);
+            
+            newImg.setAttribute("src", window.URL.createObjectURL(this.files[0]));
+            alert(newImg);
 
-        qwe.onclick=function(){
-            alert(1);
-            let newImg=curImg.cloneNode(true);
-            // curImg.remove();
-            newImg.setAttribute("src", window.URL.createObjectURL(qwe.files[0]));
-            parentImg.insertBefore(newImg,parentImg.firstChild);
         }
+        
+        const cropper=new Cropper(newImg,{
+            aspectRatio: 1/1,
+        });
+        cropper.getCroppedCanvas();
 
+        cropper.getCroppedCanvas({
+            width: 160,
+            height: 90,
+            minWidth: 256,
+            minHeight: 256,
+            maxWidth: 4096,
+            maxHeight: 4096,
+            fillColor: '#fff',
+            imageSmoothingEnabled: false,
+            imageSmoothingQuality: 'high',
+        });
+        // document.getElementById("addImg").appendChild(
+        //     cropper.getCroppedCanvas({
+        //         width: 20,
+        //         imageSmoothingEnabled: true,
+        //         imageSmoothingQuality: 'high',
+        //     })
+        // );
+        cropper.getCroppedCanvas().toDataURL("data:image/webp");
+        
         for(let i=0;i<listBtnSuccess.length;i++){
             listBtnSuccess[i].onclick=function(){
                 let flag=true;
-                if(newName.value==parent.children[2].innerHTML&&newPhn.value==parent.children[3].innerHTML){
+                if(newImg.getAttribute("src")==oldImg.getAttribute("src")
+                    &&newName.value==parent.children[2].innerHTML
+                    &&newPhn.value==parent.children[3].innerHTML){
                     flag=false;
                 }
-
+                oldImg.setAttribute("src", newImg.getAttribute("src"));
                 parent.children[2].innerHTML=newName.value;
                 parent.children[3].innerHTML=newPhn.value;
                 updRow.classList.add("hide");
