@@ -14,6 +14,8 @@ window.addEventListener('load',function(){
     var listBtnDelete=document.getElementsByClassName("deleteRow");
     let listBtnSuccess=document.querySelectorAll("[data-success]");
     let listBtnClose=document.querySelectorAll("[data-close]");
+    let listBtnSuccessCrop=document.querySelectorAll("[data-success-crop]");
+    let listBtnCloseCrop=document.querySelectorAll("[data-close-crop]");
     let bodyTable=document.getElementById("data");
     
     let showData=function(){
@@ -69,21 +71,12 @@ window.addEventListener('load',function(){
         
         updRow.classList.remove("hide");
         document.getElementById("inputPht").onchange=function(){
-            //let newImg=curImg.cloneNode(true);
-            
             croppingImg.setAttribute("src", window.URL.createObjectURL(this.files[0]));
-            //alert(newImg);
-
             cropImg.classList.remove("hide");
-            cropperImg();
-
-            for(let i=0;i<listBtnClose.length;i++){
-                listBtnClose[i].onclick=function(){
-                    cropImg.classList.add("hide");
-                }
+            croppingImg.onload=function(){
+                cropperImg();
             }
         }
-        
         
         for(let i=0;i<listBtnSuccess.length;i++){
             listBtnSuccess[i].onclick=function(){
@@ -156,33 +149,23 @@ window.addEventListener('load',function(){
         setTimeout(function(){notify.classList.add("hide")},3500);
     }
     function cropperImg(){
-        alert(1);
-        const cropper=new Cropper(croppingImg,{
+        let cropper=new Cropper(croppingImg,{
             aspectRatio: 1/1,
         });
-        // cropper.getCroppedCanvas();
-
-        // cropper.getCroppedCanvas({
-        //     width: 160,
-        //     height: 90,
-        //     minWidth: 256,
-        //     minHeight: 256,
-        //     maxWidth: 4096,
-        //     maxHeight: 4096,
-        //     fillColor: '#fff',
-        //     imageSmoothingEnabled: false,
-        //     imageSmoothingQuality: 'high',
-        // });
-        // // document.getElementById("addImg").appendChild(
-        // //     cropper.getCroppedCanvas({
-        // //         width: 20,
-        // //         imageSmoothingEnabled: true,
-        // //         imageSmoothingQuality: 'high',
-        // //     })
-        // // );
-        // let qwe= cropper.getCroppedCanvas().toDataURL("data:image/webp");
-        alert(cropperImg.getAttribute("src"));
-
-        
+        for(let i=0;i<listBtnSuccessCrop.length;i++){
+            listBtnSuccessCrop[i].onclick=function(){
+                let imgURL=cropper.getCroppedCanvas().toDataURL("image/jpeg");
+                croppingImg.setAttribute("src",imgURL);
+                newImg.setAttribute("src",imgURL);
+                cropper.destroy();
+                cropImg.classList.add("hide");
+            }
+        }
+        for(let i=0;i<listBtnCloseCrop.length;i++){
+            listBtnCloseCrop[i].onclick=function(){
+                cropper.destroy();
+                cropImg.classList.add("hide");
+            }
+        }
     }
 });
