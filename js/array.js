@@ -71,35 +71,19 @@ window.addEventListener('load',function(){
         document.getElementById("inputPht").onchange=function(){
             //let newImg=curImg.cloneNode(true);
             
-            newImg.setAttribute("src", window.URL.createObjectURL(this.files[0]));
-            alert(newImg);
+            croppingImg.setAttribute("src", window.URL.createObjectURL(this.files[0]));
+            //alert(newImg);
 
+            cropImg.classList.remove("hide");
+            cropperImg();
+
+            for(let i=0;i<listBtnClose.length;i++){
+                listBtnClose[i].onclick=function(){
+                    cropImg.classList.add("hide");
+                }
+            }
         }
         
-        const cropper=new Cropper(newImg,{
-            aspectRatio: 1/1,
-        });
-        cropper.getCroppedCanvas();
-
-        cropper.getCroppedCanvas({
-            width: 160,
-            height: 90,
-            minWidth: 256,
-            minHeight: 256,
-            maxWidth: 4096,
-            maxHeight: 4096,
-            fillColor: '#fff',
-            imageSmoothingEnabled: false,
-            imageSmoothingQuality: 'high',
-        });
-        // document.getElementById("addImg").appendChild(
-        //     cropper.getCroppedCanvas({
-        //         width: 20,
-        //         imageSmoothingEnabled: true,
-        //         imageSmoothingQuality: 'high',
-        //     })
-        // );
-        cropper.getCroppedCanvas().toDataURL("data:image/webp");
         
         for(let i=0;i<listBtnSuccess.length;i++){
             listBtnSuccess[i].onclick=function(){
@@ -170,5 +154,35 @@ window.addEventListener('load',function(){
             notify.classList.remove("hide");
         },2000);
         setTimeout(function(){notify.classList.add("hide")},3500);
+    }
+    function cropperImg(){
+        alert(1);
+        const cropper=new Cropper(croppingImg,{
+            aspectRatio: 1/1,
+        });
+        // cropper.getCroppedCanvas();
+
+        // cropper.getCroppedCanvas({
+        //     width: 160,
+        //     height: 90,
+        //     minWidth: 256,
+        //     minHeight: 256,
+        //     maxWidth: 4096,
+        //     maxHeight: 4096,
+        //     fillColor: '#fff',
+        //     imageSmoothingEnabled: false,
+        //     imageSmoothingQuality: 'high',
+        // });
+        // // document.getElementById("addImg").appendChild(
+        // //     cropper.getCroppedCanvas({
+        // //         width: 20,
+        // //         imageSmoothingEnabled: true,
+        // //         imageSmoothingQuality: 'high',
+        // //     })
+        // // );
+        // let qwe= cropper.getCroppedCanvas().toDataURL("data:image/webp");
+        alert(cropperImg.getAttribute("src"));
+
+        
     }
 });
