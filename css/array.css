@@ -58,3 +58,6 @@
 .hide{
     display: none;
 }
+.cropping{
+    width: 400px;
+}
