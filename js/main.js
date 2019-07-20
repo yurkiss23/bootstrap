@@ -1,3 +1,3 @@
-window.onload=function(){
+$(function(){
     $("#head-menu").load("/_menu.html");
-}
+});
