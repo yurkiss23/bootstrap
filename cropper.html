@@ -40,11 +40,57 @@
 <body>
     <div id="head-menu"></div>
 
+    <!-- ВИБІР ЗОБРАЖЕННЯ -->
     <div class="container">
-        <h1>Cropper</h1>
-        <img src="" id="imgView" alt="">
-        <input type="file" id="fileSelect"/>
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <h1>Cropper</h1>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-center">
+                <button id="test" class="btn btn-outline-default m-3" type="button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="">
+                </button>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-center">
+                <h5>Тицьни картинку</h5>
+            </div>
+            <div class="col-lg-12">
+                <img src="" id="imgView" alt="">
+                <input type="file" id="fileSelect" style="display: none"/>
+            </div>
+        </div>
     </div>
+
+    <!-- CROPPER -->
+    <div class="container">
+        <div class="eclipse hide" id="cropImg">
+            <div class="dialog">
+                <form role="form">
+                    <div class="title">
+                        Додати зображення
+                    </div>
+                    <div class="header-dialog">
+                        <button class="close" type="button" data-close>
+                            <i class="fa fa-close p-2"></i>
+                        </button>
+                        <h3 class="p-2">Crop image</h3>
+                    </div>
+                    <div class="content-dialog">
+                        <p>You sure?</p>
+                        <canvas id="canvas" style="height: 400px;">
+                            Your browser does not support HTML5 Canvas
+                        </canvas>
+                        <img src="" class="cropping" id="croppingImg" alt="">
+                    </div>
+                    <div class="m-2 footer-dialog">
+                        <button type="button" class="btn btn-danger" data-close-crop>Close</button>
+                        <button type="button" class="btn btn-success" data-success-crop>Ok</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <div class="dialog hide" id="dlgWorkImage">
         <div class="header">
@@ -59,7 +105,7 @@
             <div class="row">
                 <div class="col-md-9 col-sm-9 col-xs-8">
                     <div>
-                        <canvas id="canvas" style="height: 400px;">
+                        <canvas id="_canvas" style="height: 400px;">
                             Your browser does not support HTML5 Canvas
                         </canvas>
                     </div>
@@ -88,17 +134,26 @@
 
     <script>
         $(function(){
-            const file=$("#fileSelect");
-            const dlgWI=$("#dlgWorkImage");
-
-            $(dlgWI).on("click", ".dlgClose", function () {
-                dlgWI.hide();
+            $("#test").on("click",function(){
+                $("#fileSelect").click();
             });
+        });
+    </script>
 
+    <script>
+        $(function(){
+            const file=$("#fileSelect");
+            const cropImg=$("#cropImg");
+
+            $(cropImg).on("click", ".dlgClose", function () {
+                cropImg.hide();
+            });
+            
+            alert(1);
             let $canvas=$("#canvas"),
                 context=$canvas.get(0).getContext('2d');
-            let minWidth=200;
-            let isCropped=false;
+                let minWidth=200;
+                let isCropped=false;
 
             $("#saveCropImage").on('click', function (e) {
                 e.preventDefault();
@@ -124,7 +179,7 @@
                                     alert("Обрати зображення більше 700px");
                                     return;
                                 }
-                                dlgWI.show();
+                                cropImg.show();
                                 isCropped = true;
                                 context.canvas.width = img.width;
                                 context.canvas.height = img.height;
