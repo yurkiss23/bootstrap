@@ -7,11 +7,11 @@
     <title>Gallery</title>
 
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/gallery.css">
     <link rel="stylesheet" href="/css/font-awesome.css">
-    <link rel="stylesheet" href="/css/cropper/cropper.min.css">
+    <link rel="stylesheet" href="/css/cropper/cropper.css">
     <link rel="stylesheet" href="/css/array.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/mycrop.css">
 
 </head>
@@ -48,58 +48,60 @@
 
     <!-- GRID -->
     <div class="container">
-        <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <figure class="figure">
-                    <button class="btn btn-outline-default">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
-                            class="figure-img img-fluid rounded">
-                        <figcaption class="figure-caption">No image</figcaption>
-                    </button>
-                </figure>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <figure class="figure">
-                    <button class="btn btn-outline-default">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
-                            class="figure-img img-fluid rounded">
-                        <figcaption class="figure-caption">No image</figcaption>
-                    </button>
-                </figure>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <figure class="figure">
-                    <button class="btn btn-outline-default">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
-                            class="figure-img img-fluid rounded">
-                        <figcaption class="figure-caption">No image</figcaption>
-                    </button>
-                </figure>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <figure class="figure">
-                    <button class="btn btn-outline-default">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
-                            class="figure-img img-fluid rounded">
-                        <figcaption class="figure-caption">No image</figcaption>
-                    </button>
-                </figure>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <figure class="figure">
-                    <button class="btn btn-outline-default">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
-                            class="figure-img img-fluid rounded">
-                        <figcaption class="figure-caption">No image</figcaption>
-                    </button>
-                </figure>
+        <div id="grid">
+            <div id="rowGrid" class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                    <figure class="figure">
+                        <button class="btn btn-outline-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                                class="figure-img img-fluid rounded">
+                            <figcaption class="figure-caption">No image</figcaption>
+                        </button>
+                    </figure>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                    <figure class="figure">
+                        <button class="btn btn-outline-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                                class="figure-img img-fluid rounded">
+                            <figcaption class="figure-caption">No image</figcaption>
+                        </button>
+                    </figure>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                    <figure class="figure">
+                        <button class="btn btn-outline-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                                class="figure-img img-fluid rounded">
+                            <figcaption class="figure-caption">No image</figcaption>
+                        </button>
+                    </figure>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                    <figure class="figure">
+                        <button class="btn btn-outline-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                                class="figure-img img-fluid rounded">
+                            <figcaption class="figure-caption">No image</figcaption>
+                        </button>
+                    </figure>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                    <figure class="figure">
+                        <button class="btn btn-outline-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                                class="figure-img img-fluid rounded">
+                            <figcaption class="figure-caption">No image</figcaption>
+                        </button>
+                    </figure>
+                </div>
             </div>
         </div>
     </div>
     
     <!-- CROPPER DIALOG -->
     <div class="container">
-        <div id="dlgCrop" class="eclipse ">
+        <div id="dlgCrop" class="eclipse hide">
             <div class="dialog">
                 <form role="form">
                     <div class="header-dialog">
@@ -111,7 +113,7 @@
                     <div class="content-dialog">
                         <div class="row">
                             <div class="col-sm-9 col-xs-8">
-                                <canvas class="canvas">Error</canvas>
+                                <canvas id="canvas">Error</canvas>
                             </div>
                             <div class="col-sm-3 col-xs-4">
                                 <div class="docs-preview clearfix">
@@ -131,13 +133,11 @@
         </div>
     </div>
 
-    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-3.4.1.js"></script>
     <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/cropper/cropper.min.js"></script>
-    <script src="/js/mycrop.js"></script>
-    <!-- <script src="/js/array.js"></script> -->
+    <script src="/js/cropper/cropper.js"></script>
     <script src="/js/gallery.js"></script>
 </body>
 </html>

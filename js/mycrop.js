@@ -50,7 +50,7 @@ $(function(){
                             preview: '.img-preview',
                             crop: function (e) {
                                 var data = e.detail;
-                                var h = Math.round(data.height);
+                                //var h = Math.round(data.height);
                                 var w = Math.round(data.width);
                                 if (w <= minWidth && isCropped) {
                                     this.cropper.setData({ width: minWidth });
