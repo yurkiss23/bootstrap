@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/gallery.css">
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/cropper/cropper.min.css">
-    <link rel="stylesheet" href="/css/dialog.css">
+    <link rel="stylesheet" href="/css/array.css">
     <link rel="stylesheet" href="/css/mycrop.css">
 
 </head>
@@ -25,12 +25,21 @@
                 <div class="col-md-3 col-sm-12">
                     <h1>Gallery</h1>
                 </div>
-                <div class="col-md-4 col-sm-12 d-flex">
+                <div class="col-md-2 col-sm-12 d-flex">
                     <button id="addImg" class="btn btn-outline-default" type="button">
-                        <img id="imgView" src="https://static.thenounproject.com/png/558475-200.png" alt="">
+                        <img id="pic" src="https://static.thenounproject.com/png/558475-200.png" alt="">
                     </button>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-sm-7">
+                    <div class="sort">
+                        <ul class="list-group list-group-horizontal"><h3 class="m-2">Sort</h4>
+                            <li class="list-group-item list-group-item-action">date</li>
+                            <li class="list-group-item list-group-item-action">name</li>
+                            <li class="list-group-item list-group-item-action">size</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12">
                     <input type="file" id="fileSelect" style="display: none"/>
                 </div>
             </div>
@@ -41,23 +50,87 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="">
+                <figure class="figure">
+                    <button class="btn btn-outline-default">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                            class="figure-img img-fluid rounded">
+                        <figcaption class="figure-caption">No image</figcaption>
+                    </button>
+                </figure>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="">
+                <figure class="figure">
+                    <button class="btn btn-outline-default">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                            class="figure-img img-fluid rounded">
+                        <figcaption class="figure-caption">No image</figcaption>
+                    </button>
+                </figure>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="">
+                <figure class="figure">
+                    <button class="btn btn-outline-default">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                            class="figure-img img-fluid rounded">
+                        <figcaption class="figure-caption">No image</figcaption>
+                    </button>
+                </figure>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="">
+                <figure class="figure">
+                    <button class="btn btn-outline-default">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                            class="figure-img img-fluid rounded">
+                        <figcaption class="figure-caption">No image</figcaption>
+                    </button>
+                </figure>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="">
+                <figure class="figure">
+                    <button class="btn btn-outline-default">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt=""
+                            class="figure-img img-fluid rounded">
+                        <figcaption class="figure-caption">No image</figcaption>
+                    </button>
+                </figure>
             </div>
         </div>
     </div>
     
+    <!-- CROPPER DIALOG -->
+    <div class="container">
+        <div id="dlgCrop" class="eclipse ">
+            <div class="dialog">
+                <form role="form">
+                    <div class="header-dialog">
+                        <button class="btn close" data-close>
+                            <i class="fa fa-close p-2"></i>
+                        </button>
+                        <h3 class="p-2">Add image</h3>
+                    </div>
+                    <div class="content-dialog">
+                        <div class="row">
+                            <div class="col-sm-9 col-xs-8">
+                                <canvas class="canvas">Error</canvas>
+                            </div>
+                            <div class="col-sm-3 col-xs-4">
+                                <div class="docs-preview clearfix">
+                                    <div class="img-preview">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="" id="croppingImg" class="cropping">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-dialog m-2">
+                        <button type="button" class="btn btn-danger" data-close>Cancel</button>
+                        <button type="button" class="btn btn-success" data-success>Crop</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>

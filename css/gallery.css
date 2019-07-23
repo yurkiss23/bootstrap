@@ -1,4 +1,11 @@
-#imgView{
+#pic{
     width: 60px;
     margin: -20px 0;
+}
+li{
+    list-style-type: none;
+    font-weight: bold;
+}
+.blur{
+    filter: blur(2px);
 }
