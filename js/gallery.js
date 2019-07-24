@@ -4,7 +4,7 @@ $(function(){
     const file=$("#fileSelect");
     
     let flSelect=null;
-    let galleryArr=null;
+    let galleryArr=new Array();
     let $canvas=$("#canvas"), context=$canvas.get(0).getContext("2d");
     let minWidth=200;
     let isCropped=false;
@@ -18,7 +18,8 @@ $(function(){
     });
     $("[data-success]").on("click",function(e){
         e.preventDefault();
-        var cropedImage = $canvas.cropper('getCroppedCanvas').toDataURL('image/jpg');
+        var cropedImage = $canvas.cropper("getCroppedCanvas").toDataURL("image/jpg");
+        galleryArr[galleryArr.length]={name:flSelect[0], imgUrl:cropedImage};
         let newDiv=document.createElement("div");
         newDiv.className="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center";
         newDiv.innerHTML=
@@ -32,6 +33,16 @@ $(function(){
         rowGrid.insertBefore(newDiv,rowGrid.firstChild);
         dlgCrop.hide();
         isCropped=false;
+    });
+
+    $("#toLeft").on("click",function(){
+        $canvas.cropper("rotate",$("#toLeft").attr("data-option"));
+    });
+    $("#toRight").on("click",function(){
+        $canvas.cropper("rotate",$("#toRight").attr("data-option"));
+    });
+    $("#zoom").on("click",function(){
+        $canvas.cropper("zoom",$("#zoom").attr("data-option"));
     });
     
     file.on("change",function(){
@@ -52,7 +63,7 @@ $(function(){
                         context.canvas.height=img.height;
                         context.drawImage(img,0,0);
                         $canvas.cropper("destroy").cropper({
-                            aspectRatio: 4/3,
+                            aspectRatio: 1/1,
                             viewMode: 1,
                             dragMode:"move",
                             preview:".img-preview",

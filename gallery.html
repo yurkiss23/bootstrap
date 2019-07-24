@@ -110,16 +110,29 @@
                         </button>
                         <h3 class="p-2">Add image</h3>
                     </div>
-                    <div class="content-dialog">
+                    <div class="content-dialog d-inline-flex">
                         <div class="row">
                             <div class="col-sm-9 col-xs-8">
-                                <canvas id="canvas">Error</canvas>
+                                <div>
+                                    <canvas id="canvas" style="height: 400px;">Error</canvas>
+                                </div>
                             </div>
                             <div class="col-sm-3 col-xs-4">
-                                <div class="docs-preview clearfix">
-                                    <div class="img-preview">
+                                <div class="docs-preview clearfix d-flex justify-content-center">
+                                    <div class="img-preview" style="width: 100%; height: 350px; border-radius: 50%;">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png" alt="" id="croppingImg" class="cropping">
                                     </div>
+                                </div>
+                                <div class="btn-group" role="group" aria-label="workImg">
+                                    <button id="toLeft" type="button" class="btn btn-outline-info" data-option="-45">
+                                            <i class="fa fa-undo" aria-hidden="true"></i>
+                                    </button>
+                                    <button id="toRight" type="button" class="btn btn-outline-info" data-option="45">
+                                            <i class="fa fa-repeat" aria-hidden="true"></i>
+                                    </button>
+                                    <button id="zoom" type="button" class="btn btn-outline-info" data-option="0.1">
+                                            <i class="fa fa-search-plus" aria-hidden="true"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
